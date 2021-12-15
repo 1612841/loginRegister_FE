@@ -1,0 +1,997 @@
+// để ý width và basis, đi chung với nhau(basis auto(thay đổi chiềU cao, chiều rộng auto, 0% là ko thay đổi chiều cao và rộng phần tử) mà width100% sẽ nhảy xuống)
+
+:root {
+    --col-1 : calc(100%/12 - 0.09%);
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #d63384;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #198754;
+    --teal: #20c997;
+    --cyan: #0dcaf0;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+    --primary: #0d6efd;
+    --secondary: #6c757d;
+    --success: #198754;
+    --info: #0dcaf0;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --blue-white: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    --rgb-blue: #3f6ad8;
+    --rgb-blue-100: #eff9ff;
+    --rgb-green: #3ac47d;
+    --rgb-yellow: #f7b924;
+    --rgb-green-500: #31a66a;
+    --bg-blue: #e0f3ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+* > li,
+* > .link-item {
+    display: block;
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    text-align: -webkit-match-parent;
+}
+
+$number: (1,2,3,4,5,6,7,8,9,10,11,12);
+
+$color: (  --blue: #0d6efd,
+--indigo: #6610f2,
+--purple: #6f42c1,
+--pink: #d63384,
+--red: #dc3545,
+--orange: #fd7e14,
+--yellow: #ffc107,
+--green: #198754,
+--teal: #20c997,
+--cyan: #0dcaf0,
+--white: #fff,
+--gray: #6c757d,
+--gray-dark: #343a40,
+--gray-100: #f8f9fa,
+--gray-200: #e9ecef,
+--gray-300: #dee2e6,
+--gray-400: #ced4da,
+--gray-500: #adb5bd,
+--gray-600: #6c757d,
+--gray-700: #495057,
+--gray-800: #343a40,
+--gray-900: #212529,
+--primary: #0d6efd,
+--secondary: #6c757d,
+--success: #198754,
+--info: #0dcaf0,
+--warning: #ffc107,
+--danger: #dc3545,
+--light: #f8f9fa,
+--dark: #212529,
+--blue-white: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%),
+--rgb-blue: #3f6ad8,
+--rgb-blue-100: #eff9ff,
+--rgb-green: #3ac47d,
+--rgb-yellow: #f7b924,
+--rgb-green-500: #31a66a,
+--bg-blue: #e0f3ff,
+);
+
+$namealign: (l: left, r: right, b: bottom, t: top);
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    &-xl {
+        width: 100%;
+        margin: 0 auto;
+    }
+    &-lg {
+        width: 100%;
+        margin: 0 auto;
+    }
+    &-md {
+        width: 100%;
+        margin: 0 auto;
+    }
+    &-sm {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.row {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 0%;
+    flex-direction: row;
+}
+
+@mixin col ($width) {
+    -webkit-box-flex: 0;
+    align-items: center;
+    max-width: $width;
+}
+
+.col {
+    flex: 1 0 0% ;
+    @include col(100%);
+    @each $item in $number {
+        &-#{$item} {
+            @include col(calc(var(--col-1)*(#{$item})));
+            flex: 1 0 auto;
+        };
+    }
+    &-xs {
+        flex: 1 0 0% ;
+        @include col(100%);
+        @each $item in $number {
+            &-#{$item} {
+                @include col(calc(var(--col-1)*(#{$item})));
+                flex: 1 0 auto;
+            };
+        }
+    }
+    &-sm {
+        flex: 1 0 0% ;
+        @include col(100%);
+        @each $item in $number {
+            &-#{$item} {
+                @include col(calc(var(--col-1)*(#{$item})));
+                flex: 1 0 auto;
+            };
+        }
+    }
+    &-md {
+        flex: 1 0 0% ;
+        @include col(100%);
+        @each $item in $number {
+            &-#{$item} {
+                @include col(calc(var(--col-1)*(#{$item})));
+                flex: 1 0 auto;
+            };
+        }
+    }
+    &-lg {
+        flex: 1 0 0% ;
+        @include col(100%);
+        @each $item in $number {
+            &-#{$item} {
+                @include col(calc(var(--col-1)*(#{$item})));
+                flex: 1 0 auto;
+            };
+        }
+    }
+    &-xl {
+        flex: 1 0 0% ;
+        @include col(100%);
+        @each $item in $number {
+            &-#{$item} {
+                @include col(calc(var(--col-1)*(#{$item})));
+                flex: 1 0 auto;
+            };
+        }
+    }
+}
+
+.offset {
+    @each $item in $number {
+        &-#{$item} {
+            margin-left: calc(var(--col-1)*(#{$item}));
+        };
+    }
+    &-xs {
+        @each $item in $number {
+            &-#{$item} {
+                margin-left: calc(var(--col-1)*(#{$item}));
+            };
+        }
+    }
+    &-sm {
+        @each $item in $number {
+            &-#{$item} {
+                margin-left: calc(var(--col-1)*(#{$item}));
+            };
+        }
+    }
+    &-md {
+        @each $item in $number {
+            &-#{$item} {
+                margin-left: calc(var(--col-1)*(#{$item}));
+            };
+        }
+    }
+    &-lg {
+        @each $item in $number {
+            &-#{$item} {
+                margin-left: calc(var(--col-1)*(#{$item}));
+            };
+        }
+    }
+    &-xl {
+        @each $item in $number {
+            &-#{$item} {
+                margin-left: calc(var(--col-1)*(#{$item}));
+            };
+        }
+    }
+}
+
+.d {
+    &-flex {
+        display: flex;
+    }
+    &-block {
+        display: block;
+    }
+    &-none {
+        display: none;
+    }
+    &-inline {
+        display: inline;
+    }
+}
+
+.justify {
+    &-content {
+        &-center {
+            justify-content: center;
+        }
+        &-left {
+            justify-content: left;
+        }
+        &-right {
+            justify-content: right;
+        }
+        &-start {
+            justify-content: flex-start;
+        }
+        &-end {
+            justify-content: flex-end;
+        }
+        &-space {
+            &-between {
+                justify-content: space-between;
+            }
+            &-evenly {
+                justify-content: space-evenly;
+            }
+            &-around {
+                justify-content: space-around;
+            }
+        }
+    }
+}
+
+.order {
+    @each $item, $glyph in $number {
+        &-#{$item} {
+        order: #{$item}
+        };
+    }
+    &-first {
+        order: -1 !important;
+    }
+    &-last {
+        order: 12 !important;
+    }
+}
+
+.align {
+    &-items {
+        &-start{
+            align-items: flex-start;
+        } 
+        &-center {
+            align-items: center;
+        }
+        &-end {
+            align-items: flex-end;
+        }
+    }
+    &-self {
+        &-start {
+            align-self: flex-start;
+        }
+        &-center {
+            align-self: center;
+        }
+        &-end {
+            align-self: flex-end;
+        }
+    }
+    &-content {
+        &-start{
+            align-content: flex-start;
+        } 
+        &-center {
+            align-content: center;
+        }
+        &-end {
+            align-content: flex-end;
+        }
+    }
+}
+
+.bg {
+    @each $params, $value in $color {
+        &-#{str-slice(#{$params}, 3)} {
+            background: #{$value}
+        }
+    }
+    &-color {
+        @each $params, $value in $color {
+            &-#{str-slice(#{$params}, 3)} {
+                background-color: #{$value}
+            }
+        }
+        &-initial {
+            background-color: initial;
+        }
+    }
+    &-repeat {
+        &-no-repeat {
+            background-repeat: no-repeat;
+        }
+        &-repeat {
+            background-repeat: repeat;
+        }
+    }
+    &-size {
+        &-cover {
+            background-size: cover;
+        }
+    }
+    &-transparent {
+        background: transparent;
+    }
+}
+
+.color {
+    @each $params, $value in $color {
+        &-#{str-slice(#{$params}, 3)} {
+            color: #{$value}
+        }
+    }
+}
+
+.btn {
+    border-radius: 4px;
+    border: none;
+}
+
+// margin
+.m {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            margin-left: #{$i}px;
+            margin-right: #{$i}px;
+            margin-top: #{$i}px;
+            margin-bottom: #{$i}px;
+            &#{\0025}{
+                margin-left: calc(#{$i}*1%);
+                margin-right: calc(#{$i}*1%);
+                margin-top: calc(#{$i}*1%);
+                margin-bottom: calc(#{$i}*1%);
+            }
+        }
+    }
+    @each $summary, $value in $namealign {
+        &#{$summary} {
+            @for $i from 0 through 1000 {
+                &-#{$i}{
+                    margin-#{$value}: #{$i}px;
+                    &#{\0025}{
+                        margin-#{$value}: calc(#{$i}*1%);
+                    }
+                }
+            }
+        }
+    }
+    &x {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                margin-left: #{$i}px;
+                margin-right: #{$i}px;
+                &#{\0025}{
+                    margin-left: calc(#{$i}*1%);
+                    margin-right: calc(#{$i}*1%);
+                }
+            }
+        }
+        &-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    &y {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                margin-top: #{$i}px;
+                margin-bottom: #{$i}px;
+                &#{\0025}{
+                    margin-top: calc(#{$i}*1%);
+                    margin-bottom: calc(#{$i}*1%);
+                }
+            }
+        }
+        &-auto {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }
+}
+
+.mi {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            margin-left: -#{$i}px;
+            margin-right: -#{$i}px;
+            margin-top: -#{$i}px;
+            margin-bottom: -#{$i}px;
+            &#{\0025}{
+                margin-left: calc(-#{$i}*1%);
+                margin-right: calc(-#{$i}*1%);
+                margin-top: calc(-#{$i}*1%);
+                margin-bottom: calc(-#{$i}*1%);
+            }
+        }
+    }
+    @each $summary, $value in $namealign {
+        &#{$summary} {
+            @for $i from 0 through 1000 {
+                &-#{$i}{
+                    margin-#{$value}: -#{$i}px;
+                    &#{\0025}{
+                        margin-#{$value}: calc(-#{$i}*1%);
+                    }
+                }
+            }
+        }
+    }
+    &x {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                margin-left: -#{$i}px;
+                margin-right: -#{$i}px;
+                &#{\0025}{
+                    margin-left: calc(-#{$i}*1%);
+                    margin-right: calc(-#{$i}*1%);
+                }
+            }
+        }
+        &-auto {
+            margin: 0 auto;
+        }
+    }
+    &y {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                margin-top: -#{$i}px;
+                margin-bottom: -#{$i}px;
+                &#{\0025}{
+                    margin-top: calc(-#{$i}*1%);
+                    margin-bottom: calc(-#{$i}*1%);
+                }
+            }
+        }
+        &-auto {
+            margin: auto 0;
+        }
+    }
+}
+
+// padding
+
+.p {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            padding-left: #{$i}px;
+            padding-right: #{$i}px;
+            padding-top: #{$i}px;
+            padding-bottom: #{$i}px;
+        }
+    }
+    @each $summary, $value in $namealign {
+        &#{$summary} {
+            @for $i from 0 through 1000 {
+                &-#{$i}{
+                    padding-#{$value}: #{$i}px;
+                }
+            }
+        }
+    }
+    &x {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                padding-left: #{$i}px;
+                padding-right: #{$i}px;
+            }
+        }
+    }
+    &y {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                padding-top: #{$i}px;
+                padding-bottom: #{$i}px;
+            }
+        }
+    }
+}
+
+.pi {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            padding-left: -#{$i}px;
+            padding-right: -#{$i}px;
+            padding-top: -#{$i}px;
+            padding-bottom: -#{$i}px;
+        }
+    }
+    @each $summary, $value in $namealign {
+        &#{$summary} {
+            @for $i from 0 through 1000 {
+                &-#{$i}{
+                    padding-#{$value}: -#{$i}px;
+                }
+            }
+        }
+    }
+    &x {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                padding-left: -#{$i}px;
+                padding-right: -#{$i}px;
+            }
+        }
+    }
+    &y {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                padding-top: -#{$i}px;
+                padding-bottom: -#{$i}px;
+            }
+        }
+    }
+}
+
+.border {
+    border: 0.005px solid #ced4da;
+    &-none {
+        border: none;
+    }
+    &-left {
+        border-left: 0.005px solid rgb(223, 221, 221);
+        &-none {
+            border-left: none !important;
+        }
+    }
+    &-right {
+        border-right: 0.005px solid rgb(223, 221, 221);
+        &-none {
+            border-right: none !important;
+        }
+    }
+    &-top {
+        border-top: 0.005px solid rgb(223, 221, 221);
+        &-none {
+            border-top: none !important;
+        }
+    }
+    &-bottom {
+        border-bottom: 0.005px solid rgb(223, 221, 221);
+        &-none {
+            border-bottom: none !important;
+        }
+    }
+}
+
+.border-radius {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            border-radius: #{$i}px;
+        }
+    }
+    @for $i from 0 through 100 {
+        &-#{$i} {
+            &#{\0025}{
+                border-radius: calc(#{$i}*1%);
+            }
+        }
+    }
+    &-left {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                border-top-left-radius: #{$i}px;
+                border-bottom-left-radius: #{$i}px;
+            }
+        }
+        @for $i from 0 through 100 {
+            &-#{$i} {
+                &#{\0025}{
+                    border-top-left-radius: calc(#{$i}*1%);
+                    border-bottom-left-radius: calc(#{$i}*1%);
+                }
+            }
+        }
+    }
+    &-right {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                border-top-right-radius: #{$i}px;
+                border-bottom-right-radius: #{$i}px;
+            }
+        }
+        @for $i from 0 through 100 {
+            &-#{$i} {
+                &#{\0025}{
+                    border-top-right-radius: calc(#{$i}*1%);
+                    border-bottom-right-radius: calc(#{$i}*1%);
+                }
+            }
+        }
+    }
+}
+
+.text {
+    &-align {
+        &-center {
+            text-align: center;
+        }
+        &-left {
+            text-align: left;
+        }
+        &-right {
+            text-align: right;
+        }
+    }
+    &-decoration {
+        &-none {
+            text-decoration: none;
+        }
+    }
+}
+
+.position {
+    &-relative {
+        position: relative;
+    }
+    &-absolute {
+        position: absolute;
+    }
+    &-fixed {
+        position: fixed;
+    }
+}
+
+.navbar {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 4px;
+    &-nav {
+        display: flex;
+        flex-direction: column;
+        padding: auto 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
+    &-link {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #0d6efd;
+        text-decoration: none;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    }
+}
+
+.w {
+    @for $i from 0 through 1000 {
+        &-#{$i} {
+            width: #{$i}px;
+        }
+    }
+    @for $i from 0 through 100 {
+        &-#{$i} {
+            &#{\0025}{
+                width: calc(#{$i}*1%);
+            }
+        }
+    }
+    @for $i from 0 through 100 {
+        &-#{$i}vw  {
+            width: #{$i}vw;
+        }
+    }
+    &-auto {
+        width: auto;
+    }
+}
+
+.h {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            height: #{$i}px;
+        }
+    }
+    @for $i from 0 through 100 {
+        &-#{$i} {
+            &#{\0025}{
+                height: calc(#{$i}*1%);
+            }
+        }
+    }
+    @for $i from 0 through 100 {
+        &-#{$i}vh {
+            height: #{$i}vh;
+        }
+    }
+    &-auto {
+        width: auto;
+    }
+}
+
+.font {
+    &-size {
+        @for $i from -100 through 100 {
+            &-#{$i}{
+                font-size: #{$i}px;
+            }
+        }
+    }
+    &-weight {
+        @for $i from 0 through 100 {
+            &-#{$i}{
+                font-weight: #{$i};
+            }
+            &-lighter {
+                font-weight: lighter;
+            }
+            &-bold {
+                font-weight: bold;
+            }
+            &-bolder {
+                font-weight: bolder;
+            }
+        }
+        &-normal {
+            font-weight: normal;
+        }
+    }
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.flex {
+    @for $i from 0 through 1 {
+        &-#{$i} {
+            flex-grow: #{$i};
+            &-#{$i} {
+                flex-shrink: #{$i};
+                &-#{$i} {
+                    &#{\0025}{
+                        flex-basis: calc(#{$i}*1%);
+                    }
+                }
+                &-auto {
+                    flex-basis: auto;
+                }
+            } 
+        }
+    }
+    &-direction {
+        &-column {
+            flex-direction: column;
+        }
+        &-row {
+            flex-direction: row;
+        }
+    }
+}
+
+.t {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            top: #{$i}px;
+        }
+    }
+}
+.ti {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            top: -#{$i}px;
+        }
+    }
+}
+
+.b {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            bottom: #{$i}px;
+        }
+    }
+}
+.bi {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            bottom: -#{$i}px;
+        }
+    }
+}
+
+.l {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            left: #{$i}px;
+        }
+    }
+}
+.li {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            left: -#{$i}px;
+        }
+    }
+}
+
+.r {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            right: #{$i}px;
+        }
+    }
+}
+.ri {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            right: -#{$i}px;
+        }
+    }
+}
+
+.clear {
+    &-both {
+        clear: both;
+    }
+}
+
+.object-fit {
+    &-cover {
+        object-fit: cover;
+    }
+}
+
+.opacity {
+    @for $item from 0 through 10 {
+        &-#{$item} {
+            opacity: calc(#{$item}/10);
+        }
+    }
+}
+
+.overflow {
+    &-x {
+        &-hidden {
+            overflow-x: hidden;
+        }
+        &-auto {
+            overflow-x: auto;
+        }
+    }
+    &-y {
+        &-hidden {
+            overflow-y: hidden;
+        }
+        &-auto {
+            overflow-y: auto;
+        }
+    }
+    &-hidden {
+        overflow: hidden;
+    }
+    &-auto {
+        overflow: auto;
+    }
+}
+
+.line-height {
+    @for $i from 0 through 1000 {
+        &-#{$i}{
+            line-height: #{$i}px;
+        }
+    }
+}
+
+.max {
+    &-h {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                max-height: #{$i}px;
+            }
+            &-#{$i} {
+                &#{\0025}{
+                    max-height: calc(#{$i}*1%);
+                }
+            }
+        }
+    }
+    &-w {
+        @for $i from 0 through 1000 {
+            &-#{$i}{
+                max-width: #{$i}px;
+            }
+            &-#{$i} {
+                &#{\0025}{
+                    max-width: calc(#{$i}*1%);
+                }
+            }
+        }
+    }
+}
+.visibility {
+    &-hidden {
+        visibility: hidden
+    }
+    &-visible {
+        visibility: visible;
+    }
+}
+
+.style-check-input[type=checkbox] {
+    transform: scale(1.1);
+    border-radius: 2px;
+}
+
+.hover:hover {
+    transition: all ease-in-out 0.4s;
+    cursor: pointer;
+    background: rgba(255,255,255, 0.5);
+}
+
+.tr {
+    &-all {
+        &-ease {
+            @for $i from 0 through 20 {
+                &-#{$i} {
+                    transition:all ease calc(#{$i}s/10)s;
+                }
+            }
+        }
+        &-ease-in-out {
+            @for $i from 0 through 20 {
+                &-#{$i} {
+                    transition:all ease-in-out calc(#{$i}s/10);
+                }
+            }
+        }
+    }
+}

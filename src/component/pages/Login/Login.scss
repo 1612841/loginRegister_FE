@@ -1,0 +1,14 @@
+.login {
+    background: url("../../../images/bgtwo.jpg") no-repeat center center;
+    background-size: cover;
+    .form-login {
+        background: rgba(255, 255, 255, 0.3);
+        .btns {
+            transition: all 0.5s;
+            &:hover {
+                background: black;
+                color: #fff;
+            }
+        }
+    }
+}
